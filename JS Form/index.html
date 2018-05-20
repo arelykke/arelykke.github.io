@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center text-success">JS Form </h1>
+        <div class =" col-lg-8 m-auto d-block">
+            <form class="bg-light" action="success.html" onsubmit="return validation()">
+                <div class="form-group">
+                    <label>Username: </label>
+                    <input type="text" name="user" id="username" class="form-control" autocomplete="off">
+                    <span id="usernameid" class="text-danger font-weight-bold"></span>
+
+                </div>
+
+                
+
+                <div class="form-group">
+                    <label>Password: </label>
+                    <input type="password" name="user" id="password" class="form-control" autocomplete="off">
+                    <span id="passwords" class="text-danger font-weight-bold"></span>
+        
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password: </label>
+                    <input type="password" name="user" id="passwordconfirm" class="form-control" autocomplete="off">
+                    <span id="confirmpassword" class="text-danger font-weight-bold"></span>
+            
+                </div>
+                
+                <div class="form-group">
+                    <label>Mobile Number: </label>
+                    <input type="text" name="user" id="numbermobile" class="form-control" autocomplete="off">
+                    <span id="mobilenumber" class="text-danger font-weight-bold"></span>
+        
+                </div>
+
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" name="user" id="emailid" class="form-control" autocomplete="off">
+                    <span id="emailids" class="text-danger font-weight-bold"></span>
+            
+                </div>
+
+                <input type="submit" name="submit" value="Submit" class=" btn btn-success">
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        function validation(){
+            var user = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var confirmpassword = document.getElementById('passwordconfirm').value;
+            var mobilenumber = document.getElementById('numbermobile').value;
+            var email = document.getElementById('emailid').value;
+
+            if(user == ""){
+                document.getElementById('usernameid').innerHTML = "** Please enter a username ";
+                return false;
+            }
+            if((user.length < 3) || (user.length > 20)){
+                document.getElementById('usernameid').innerHTML ="** Please enter a username between 3 and 20 characters";
+                return false;
+            }
+            if(!isNaN(user)){
+                document.getElementById('usernameid').innerHTML = "** Please enter a valid username";
+                return false;
+            }
+
+
+
+            if(password == ""){
+                document.getElementById('passwords').innerHTML = "** Please enter a password ";
+                return false;
+            }
+            if((password.length < 5) || (password.length > 20)){
+                document.getElementById('passwords').innerHTML = "** Please enter a password between 5 and 20 characters";
+                return false;
+            }
+            if(password!=confirmpassword){
+                document.getElementById('confirmpassword').innerHTML = "** Passwords are not matching";
+                return false;
+            }
+
+
+            if(confirmpassword == ""){
+                document.getElementById('confirmpassword').innerHTML = "** Please confirm the password ";
+                return false;
+            }
+
+
+
+            if(mobilenumber == ""){
+                document.getElementById('mobilenumber').innerHTML = "** Please enter a mobile number ";
+                return false;
+            }
+            if(mobilenumber.length!=8) {
+                document.getElementById('mobilenumber').innerHTML = "** Please enter a valid number";
+                return false;
+            }
+            if(isNaN(mobilenumber)){
+                document.getElementById('mobilenumber').innerHTML = "** Mobile number can only contain digits";
+                return false;
+            }
+
+            if(email == ""){
+                document.getElementById('emailids').innerHTML = "** Please enter an email ";
+                return false;
+            }
+            if(email.indexOf('@')<= 0){
+                document.getElementById('emailids').innerHTML = "** Please enter a valid email";
+                return false;
+            }
+           
+        }
+
+
+    </script>
+
+
+
+    
+</body>
+</html>
